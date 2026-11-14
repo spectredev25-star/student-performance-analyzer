@@ -11,7 +11,7 @@ Student Performance Analyzer provides matching Python and TypeScript calculation
 - Configure grading boundaries through the Python and TypeScript APIs.
 - Analyze a class: rankings, grade distribution, class average, and subject-level mean, median, range, and population standard deviation.
 - Generate a three-panel Matplotlib dashboard for student averages, subject averages, and grade distribution.
-- Run matching Python and TypeScript tests against `shared/fixtures/students.json`.
+- Run matching Python and TypeScript tests against `shared/fixtures/calculation-cases.json`.
 
 Default grading policy (customizable): A 80–100, B 70–79.99, C 60–69.99, D 50–59.99, F 0–49.99.
 
@@ -32,7 +32,9 @@ student-performance-analyzer/
 │   ├── tsconfig.json
 │   ├── src/index.ts
 │   └── tests/index.test.ts
-├── shared/fixtures/students.json
+├── shared/fixtures/
+│   ├── students.json
+│   └── calculation-cases.json
 └── .github/workflows/tests.yml
 ```
 
