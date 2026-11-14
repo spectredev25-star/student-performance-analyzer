@@ -1,0 +1,8 @@
+{
+  "name": "@spectre-dev/student-performance-analyzer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"test":"vitest run","test:watch":"vitest","build":"tsc -p tsconfig.json"},
+  "devDependencies": {"typescript":"^5.7.3","vitest":"^2.1.8"}
+}
