@@ -1,0 +1,36 @@
+{
+  "student_cases": [
+    {
+      "input": {"id":"STU001","name":"Ada","department":"Computer Engineering","scores":{"Mathematics":78,"Programming":85,"Physics":90,"Databases":67,"English":88}},
+      "expected": {"id":"STU001","name":"Ada","department":"Computer Engineering","total":408,"average":81.6,"highest_subject":"Physics","highest_score":90,"lowest_subject":"Databases","lowest_score":67,"grade":"A","remark":"Excellent","subject_results":{"Mathematics":{"score":78,"grade":"B","remark":"Very Good"},"Programming":{"score":85,"grade":"A","remark":"Excellent"},"Physics":{"score":90,"grade":"A","remark":"Excellent"},"Databases":{"score":67,"grade":"C","remark":"Good"},"English":{"score":88,"grade":"A","remark":"Excellent"}}}
+    },
+    {
+      "input": {"id":"STU002","name":"Tunde","department":"Computer Engineering","scores":{"Mathematics":50,"Programming":60,"Physics":55}},
+      "expected": {"id":"STU002","name":"Tunde","department":"Computer Engineering","total":165,"average":55,"highest_subject":"Programming","highest_score":60,"lowest_subject":"Mathematics","lowest_score":50,"grade":"D","remark":"Pass","subject_results":{"Mathematics":{"score":50,"grade":"D","remark":"Pass"},"Programming":{"score":60,"grade":"C","remark":"Good"},"Physics":{"score":55,"grade":"D","remark":"Pass"}}}
+    }
+  ],
+  "class_case": {
+    "input": [
+      {"id":"STU001","name":"Ada","department":"Computer Engineering","scores":{"Mathematics":78,"Programming":85,"Physics":90,"Databases":67,"English":88}},
+      {"id":"STU002","name":"Tunde","department":"Computer Engineering","scores":{"Mathematics":50,"Programming":60,"Physics":55}}
+    ],
+    "expected": {
+      "student_count":2,"class_average":68.3,
+      "highest_student":{"rank":1,"id":"STU001","name":"Ada","average":81.6},
+      "lowest_student":{"rank":2,"id":"STU002","name":"Tunde","average":55},
+      "grade_distribution":{"A":1,"D":1},
+      "rankings":[{"rank":1,"id":"STU001","name":"Ada","average":81.6},{"rank":2,"id":"STU002","name":"Tunde","average":55}],
+      "subject_statistics":{
+        "Databases":{"count":1,"average":67,"median":67,"minimum":67,"maximum":67,"population_std_dev":0},
+        "English":{"count":1,"average":88,"median":88,"minimum":88,"maximum":88,"population_std_dev":0},
+        "Mathematics":{"count":2,"average":64,"median":64,"minimum":50,"maximum":78,"population_std_dev":14},
+        "Physics":{"count":2,"average":72.5,"median":72.5,"minimum":55,"maximum":90,"population_std_dev":17.5},
+        "Programming":{"count":2,"average":72.5,"median":72.5,"minimum":60,"maximum":85,"population_std_dev":12.5}
+      },
+      "students":[
+        {"id":"STU001","name":"Ada","department":"Computer Engineering","total":408,"average":81.6,"highest_subject":"Physics","highest_score":90,"lowest_subject":"Databases","lowest_score":67,"grade":"A","remark":"Excellent","subject_results":{"Mathematics":{"score":78,"grade":"B","remark":"Very Good"},"Programming":{"score":85,"grade":"A","remark":"Excellent"},"Physics":{"score":90,"grade":"A","remark":"Excellent"},"Databases":{"score":67,"grade":"C","remark":"Good"},"English":{"score":88,"grade":"A","remark":"Excellent"}}},
+        {"id":"STU002","name":"Tunde","department":"Computer Engineering","total":165,"average":55,"highest_subject":"Programming","highest_score":60,"lowest_subject":"Mathematics","lowest_score":50,"grade":"D","remark":"Pass","subject_results":{"Mathematics":{"score":50,"grade":"D","remark":"Pass"},"Programming":{"score":60,"grade":"C","remark":"Good"},"Physics":{"score":55,"grade":"D","remark":"Pass"}}}
+      ]
+    }
+  }
+}
