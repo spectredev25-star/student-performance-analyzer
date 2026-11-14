@@ -11,7 +11,7 @@ Student Performance Analyzer provides matching Python and TypeScript calculation
 - Configure grading boundaries through the Python and TypeScript APIs.
 - Analyze a class: rankings, grade distribution, class average, and subject-level mean, median, range, and population standard deviation.
 - Generate a three-panel Matplotlib dashboard for student averages, subject averages, and grade distribution.
-- Run matching Python and TypeScript tests against `shared/fixtures/calculation-cases.json`.
+- Run matching Python and TypeScript tests against `shared/fixtures/students.json`.
 
 Default grading policy (customizable): A 80–100, B 70–79.99, C 60–69.99, D 50–59.99, F 0–49.99.
 
@@ -32,7 +32,7 @@ student-performance-analyzer/
 │   ├── tsconfig.json
 │   ├── src/index.ts
 │   └── tests/index.test.ts
-├── shared/fixtures/calculation-cases.json
+├── shared/fixtures/students.json
 └── .github/workflows/tests.yml
 ```
 
@@ -69,23 +69,23 @@ pytest
 
 ### CLI commands
 
-Run these from the `python/` directory after installation. Dataset paths below are relative to the repository root, so use `../shared/fixtures/calculation-cases.json` from this directory.
+Run these from the `python/` directory after installation. Dataset paths below are relative to the repository root, so use `../shared/fixtures/students.json` from this directory.
 
 ```bash
 # Class report (JSON)
-student-analyzer analyze ../shared/fixtures/calculation-cases.json
+student-analyzer analyze ../shared/fixtures/students.json
 
 # One student's report
-student-analyzer student ../shared/fixtures/calculation-cases.json STU001
+student-analyzer student ../shared/fixtures/students.json STU001
 
 # Save a class dashboard graph
-student-analyzer chart ../shared/fixtures/calculation-cases.json --output ../performance-dashboard.png
+student-analyzer chart ../shared/fixtures/students.json --output ../performance-dashboard.png
 ```
 
 You can also run the CLI without installing its command entry point:
 
 ```bash
-python -m student_analyzer.cli analyze ../shared/fixtures/calculation-cases.json
+python -m student_analyzer.cli analyze ../shared/fixtures/students.json
 ```
 
 The chart contains student averages, subject averages, and grade distribution. Matplotlib saves it to the path supplied with `--output`.
@@ -123,7 +123,7 @@ Both APIs accept an optional grading scale. A scale is an array of objects with 
 
 ## Cross-language validation
 
-The shared fixture file contains the input records and exact expected outputs. Python's pytest suite and TypeScript's Vitest suite both read that same file. This is the contract that keeps the two implementations aligned as features are added.
+The shared calculation fixture, `calculation-cases.json`, contains input records and exact expected outputs. Python's pytest suite and TypeScript's Vitest suite both read that same file. The separate `students.json` file is a small runnable dataset for the CLI.
 
 GitHub Actions runs both test suites and the TypeScript build on pushes and pull requests.
 
