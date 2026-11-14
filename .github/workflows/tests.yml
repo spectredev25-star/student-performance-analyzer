@@ -1,0 +1,36 @@
+name: Stage 1 tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+        working-directory: python
+      - run: python -m pytest
+        working-directory: python
+
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: javascript/package.json
+      - run: npm install
+        working-directory: javascript
+      - run: npm test
+        working-directory: javascript
+      - run: npm run build
+        working-directory: javascript
