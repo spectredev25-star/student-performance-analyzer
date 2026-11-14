@@ -1,0 +1,27 @@
+[
+  {
+    "min_score": 80,
+    "grade": "A",
+    "remark": "Excellent"
+  },
+  {
+    "min_score": 70,
+    "grade": "B",
+    "remark": "Very Good"
+  },
+  {
+    "min_score": 60,
+    "grade": "C",
+    "remark": "Good"
+  },
+  {
+    "min_score": 50,
+    "grade": "D",
+    "remark": "Pass"
+  },
+  {
+    "min_score": 0,
+    "grade": "F",
+    "remark": "Needs Improvement"
+  }
+]

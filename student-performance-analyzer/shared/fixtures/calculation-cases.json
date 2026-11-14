@@ -1,0 +1,49 @@
+[
+  {
+    "name": "standard",
+    "scores": {
+      "Math": 80,
+      "English": 90
+    },
+    "expected": {
+      "total": 170,
+      "average": 85,
+      "highest": 90,
+      "lowest": 80,
+      "grade": "A",
+      "performance": "Excellent",
+      "score_count": 2
+    }
+  },
+  {
+    "name": "zero-valid",
+    "scores": {
+      "Math": 0,
+      "English": 100
+    },
+    "expected": {
+      "total": 100,
+      "average": 50,
+      "highest": 100,
+      "lowest": 0,
+      "grade": "D",
+      "performance": "Pass",
+      "score_count": 2
+    }
+  },
+  {
+    "name": "single-score",
+    "scores": {
+      "Programming": 72.5
+    },
+    "expected": {
+      "total": 72.5,
+      "average": 72.5,
+      "highest": 72.5,
+      "lowest": 72.5,
+      "grade": "B",
+      "performance": "Very Good",
+      "score_count": 1
+    }
+  }
+]

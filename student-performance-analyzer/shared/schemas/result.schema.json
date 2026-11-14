@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "student_id",
+    "name",
+    "total",
+    "average",
+    "highest",
+    "lowest",
+    "grade",
+    "performance",
+    "score_count"
+  ],
+  "properties": {
+    "student_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "total": {
+      "type": "number"
+    },
+    "average": {
+      "type": "number"
+    },
+    "highest": {
+      "type": "number"
+    },
+    "lowest": {
+      "type": "number"
+    },
+    "grade": {
+      "type": "string"
+    },
+    "performance": {
+      "type": "string"
+    },
+    "score_count": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "STU001",
+    "name": "Alex",
+    "department": "Computer Engineering",
+    "scores": {
+      "Mathematics": 78,
+      "Programming": 85,
+      "Physics": 90,
+      "Databases": 67,
+      "English": 88
+    }
+  },
+  {
+    "id": "STU002",
+    "name": "Sarah",
+    "department": "Computer Engineering",
+    "scores": {
+      "Mathematics": 90,
+      "Programming": 92,
+      "Physics": 85,
+      "Databases": 89,
+      "English": 95
+    }
+  },
+  {
+    "id": "STU003",
+    "name": "John",
+    "department": "Mechanical Engineering",
+    "scores": {
+      "Mathematics": 45,
+      "Programming": 56,
+      "Physics": 67,
+      "Databases": 55,
+      "English": 60
+    }
+  },
+  {
+    "id": "STU004",
+    "name": "Mary",
+    "department": "Computer Engineering",
+    "scores": {
+      "Mathematics": 80,
+      "Programming": 75,
+      "Physics": 88,
+      "Databases": 92,
+      "English": 85
+    }
+  },
+  {
+    "id": "STU005",
+    "name": "David",
+    "department": "Mechanical Engineering",
+    "scores": {
+      "Mathematics": 35,
+      "Programming": 42,
+      "Physics": 48,
+      "Databases": 50,
+      "English": 39
+    }
+  }
+]
