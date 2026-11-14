@@ -6,7 +6,6 @@ build-backend = "setuptools.build_meta"
 name = "student-performance-analyzer"
 version = "0.1.0"
 description = "Reusable student performance calculations, analytics, CLI and charts."
-readme = "../README.md"
 requires-python = ">=3.10"
 dependencies = ["matplotlib>=3.7"]
 
