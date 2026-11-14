@@ -1,0 +1,24 @@
+[
+  {
+    "id": "STU001",
+    "name": "Ada",
+    "department": "Computer Engineering",
+    "scores": {
+      "Mathematics": 78,
+      "Programming": 85,
+      "Physics": 90,
+      "Databases": 67,
+      "English": 88
+    }
+  },
+  {
+    "id": "STU002",
+    "name": "Tunde",
+    "department": "Computer Engineering",
+    "scores": {
+      "Mathematics": 50,
+      "Programming": 60,
+      "Physics": 55
+    }
+  }
+]
