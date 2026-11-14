@@ -1,384 +1,154 @@
 # Student Performance Analyzer
 
-**An extensible, multi-platform toolkit for analyzing student academic performance.**
+**A reusable toolkit for turning academic scores into meaningful analysis.**
 
-Student Performance Analyzer is an open-source software project designed to help developers, educators, and academic institutions calculate, understand, visualize, and manage student performance data.
+Student Performance Analyzer provides matching Python and TypeScript calculation engines, a Python command-line interface, class-level statistics, and performance charts. Both engines follow shared JSON fixtures so their results can be checked against the same expected outputs.
 
-The project combines Python, TypeScript/JavaScript, React, and PostgreSQL to provide a modular solution for individual student analysis and class-wide academic insights.
+## Stage 1 capabilities
 
-Rather than being limited to calculating totals and averages, the goal is to build a reusable analytical system that can grow into a foundation for academic dashboards, student management systems, educational platforms, and other data-driven applications.
+- Validate student records, score ranges, required fields, and unique IDs.
+- Calculate totals, averages, highest/lowest subjects, subject grades, and overall remarks.
+- Configure grading boundaries through the Python and TypeScript APIs.
+- Analyze a class: rankings, grade distribution, class average, and subject-level mean, median, range, and population standard deviation.
+- Generate a three-panel Matplotlib dashboard for student averages, subject averages, and grade distribution.
+- Run matching Python and TypeScript tests against `shared/fixtures/calculation-cases.json`.
 
----
+Default grading policy (customizable): A 80–100, B 70–79.99, C 60–69.99, D 50–59.99, F 0–49.99.
 
-## Project Vision
-
-Academic performance data contains more information than examination scores alone.
-
-With the right tools, raw scores can become meaningful insights that help answer questions such as:
-
-- How is an individual student performing?
-- Which subjects are a student's strongest and weakest?
-- What is the overall performance of a class?
-- Which students are performing exceptionally well?
-- How are grades distributed across a group?
-- Which subjects have the highest or lowest class averages?
-- Are there noticeable performance patterns across students?
-
-Student Performance Analyzer aims to make these analyses accessible through a reusable, developer-friendly toolkit.
-
-## Key Features
-
-### 1. Individual Student Analysis
-
-Analyze a student's academic records and calculate:
-
-- Total scores
-- Average score
-- Highest and lowest scores
-- Overall grade
-- Performance classification
-- Individual subject grades and remarks
-
-### 2. Class Performance Analysis
-
-Analyze multiple student records to generate:
-
-- Overall class average
-- Highest and lowest student averages
-- Student rankings
-- Grade distribution
-- Subject-level statistics
-- Comparative performance reports
-
-### 3. Statistical Analysis
-
-The analytics module supports:
-
-- Mean
-- Median
-- Mode
-- Population variance
-- Population standard deviation
-- Minimum and maximum scores
-
-### 4. Data Visualization
-
-The Python visualization module uses Matplotlib to generate graphical representations of student performance.
-
-The JavaScript component library also provides reusable visual elements for integrating performance data into React applications.
-
-### 5. Multiple Data Sources
-
-The project supports:
-
-- JSON data input
-- CSV data input
-- PostgreSQL database integration
-
-This allows student records to be loaded from files or retrieved from a relational database.
-
-### 6. Configurable Grading System
-
-The grading engine uses configurable grade boundaries rather than permanently fixing grading assumptions inside calculation functions.
-
-The default grading scale is:
-
-| Score Range | Grade | Remark |
-| --- | --- | --- |
-| 80–100 | A | Excellent |
-| 70–79.99 | B | Very Good |
-| 60–69.99 | C | Good |
-| 50–59.99 | D | Pass |
-| 0–49.99 | F | Needs Improvement |
-
-These are default project settings and can be adjusted to suit different academic grading policies.
-
----
-
-## Technology Stack
-
-| Technology | Purpose |
-| --- | --- |
-| Python | Core calculations, analytics, CLI and visualization |
-| TypeScript | Typed, reusable calculation engine |
-| JavaScript | Application integration |
-| React | Reusable user interface components |
-| PostgreSQL | Relational data storage |
-| Matplotlib | Data visualization |
-| Pytest | Python testing |
-| Vitest | JavaScript testing |
-| Git & GitHub | Version control and collaboration |
-
----
-
-## Project Architecture
-
-The project follows a modular architecture that separates calculations, analytics, data storage, and presentation.
+## Repository layout
 
 ```text
 student-performance-analyzer/
-│
-├── docs/                 # Project documentation
-│
-├── shared/               # Shared schemas and test fixtures
-│
-├── examples/             # Usage examples
-│
-├── python/               # Python analytical engine
-│   ├── src/
-│   │   └── student_analyzer/
-│   │       ├── core/          # Calculations and validation
-│   │       ├── analytics/     # Individual and class analysis
-│   │       ├── visualization/ # Charts and graphs
-│   │       ├── inputs/        # JSON and CSV readers
-│   │       ├── database/      # Database integration
-│   │       └── cli/           # Terminal interface
+├── python/
+│   ├── pyproject.toml
+│   ├── src/student_analyzer/
+│   │   ├── core.py
+│   │   ├── analytics.py
+│   │   ├── visualization.py
+│   │   └── cli.py
 │   └── tests/
-│
-├── javascript/            # TypeScript and React library
-│   ├── src/
-│   │   ├── core/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   └── types/
-│   └── tests/
-│
-├── database/              # PostgreSQL resources
-│   ├── migrations/
-│   ├── seeds/
-│   └── queries/
-│
-└── .github/               # GitHub workflows and templates
+├── javascript/
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── src/index.ts
+│   └── tests/index.test.ts
+├── shared/fixtures/calculation-cases.json
+└── .github/workflows/tests.yml
 ```
 
-### Architectural Principle
+## Data contract
 
-The calculation engine is independent of the user interface and database.
-
-This means developers can use the analytical functions without needing to install the entire application or depend on a particular presentation framework.
-
-The Python and TypeScript implementations also aim to follow the same data contracts and calculation rules.
-
----
-
-## Getting Started
-
-### Requirements
-
-- Python 3.10 or newer
-- Node.js 20 or newer
-- Git
-- PostgreSQL (optional, for database integration)
-
-### Clone the repository
-
-```bash
-git clone https://github.com/spectredev25-star/student-performance-analyzer.git
-
-cd student-performance-analyzer
-```
-
-### Set up Python
-
-```bash
-cd python
-
-py -m venv .venv
-```
-
-Activate the virtual environment on Windows:
-
-```powershell
-.venv\\Scripts\\Activate.ps1
-```
-
-Install the package and development dependencies:
-
-```bash
-python -m pip install -e ".[dev]"
-```
-
-Run the tests:
-
-```bash
-pytest
-```
-
-### Set up JavaScript
-
-Open another terminal:
-
-```bash
-cd javascript
-
-npm install
-```
-
-Run tests:
-
-```bash
-npm test
-```
-
-Build the TypeScript project:
-
-```bash
-npm run build
-```
-
----
-
-## Using the Python CLI
-
-After installing the Python package, you can analyze the included sample dataset.
-
-From the project root:
-
-```bash
-student-analyzer analyze shared/fixtures/students.json
-```
-
-Analyze an individual student:
-
-```bash
-student-analyzer student shared/fixtures/students.json STU001
-```
-
-Generate a performance chart:
-
-```bash
-student-analyzer chart shared/fixtures/students.json --output performance.png
-```
-
----
-
-## Data Structure
-
-A student record follows this general structure:
+A student record has a unique string ID, a name, an optional department, and at least one subject score. Scores must be finite numbers from 0 to 100 inclusive. Missing scores are not silently converted to zero.
 
 ```json
 {
   "id": "STU001",
-  "name": "Alex",
+  "name": "Ada",
   "department": "Computer Engineering",
   "scores": {
     "Mathematics": 78,
     "Programming": 85,
-    "Physics": 90,
-    "Databases": 67,
-    "English": 88
+    "Physics": 90
   }
 }
 ```
 
-Each student has a unique identifier, personal academic information, and a collection of course scores.
+The dataset is a JSON array of student records. The CLI also accepts an object containing a `students` array.
 
-### Data Validation Rules
+## Python setup
 
-- Scores must be numeric.
-- Scores must fall between 0 and 100.
-- A student must have at least one course score.
-- Missing scores are rejected rather than silently treated as zero.
-- Duplicate student identifiers are not allowed.
+Python 3.10+ is required. From the repository root:
 
----
-
-## Reusability
-
-One of the main goals of this project is to make its analytical functionality reusable.
-
-Developers should be able to integrate the project into:
-
-- Student management systems
-- School administration platforms
-- Educational dashboards
-- Academic reporting applications
-- Learning management systems
-- Data analysis projects
-
-The React components are designed to be independently reusable, while the Python engine can be integrated into other Python applications.
-
----
-
-## Testing
-
-Testing is an important part of the project's development.
-
-The repository includes:
-
-- Python unit tests using Pytest.
-- TypeScript unit tests using Vitest.
-- Shared calculation fixtures for consistent expected results.
-- GitHub Actions workflow for automated testing.
-
-Run Python tests from the `python/` directory:
-
-```bash
+```powershell
+cd python
+py -m venv .venv
+.venv\\Scripts\\Activate.ps1
+python -m pip install -e ".[dev]"
 pytest
 ```
 
-Run JavaScript tests from the `javascript/` directory:
+### CLI commands
+
+Run these from the `python/` directory after installation. Dataset paths below are relative to the repository root, so use `../shared/fixtures/calculation-cases.json` from this directory.
 
 ```bash
-npm test
+# Class report (JSON)
+student-analyzer analyze ../shared/fixtures/calculation-cases.json
+
+# One student's report
+student-analyzer student ../shared/fixtures/calculation-cases.json STU001
+
+# Save a class dashboard graph
+student-analyzer chart ../shared/fixtures/calculation-cases.json --output ../performance-dashboard.png
 ```
 
----
+You can also run the CLI without installing its command entry point:
 
-## Project Roadmap
+```bash
+python -m student_analyzer.cli analyze ../shared/fixtures/calculation-cases.json
+```
 
-The project is intended to grow incrementally.
+The chart contains student averages, subject averages, and grade distribution. Matplotlib saves it to the path supplied with `--output`.
 
-- Establish project architecture.
-- Implement initial Python calculation engine.
-- Implement validation and grading.
-- Implement individual and class analysis.
-- Add JSON and CSV readers.
-- Add initial Python visualization.
-- Establish TypeScript calculation engine.
-- Create initial reusable React components.
-- Create PostgreSQL schema and sample data.
-- Expand visualization and statistical reporting.
-- Add more configurable grading policies.
-- Expand database integration and data management.
-- Improve reusable component customization.
-- Add comprehensive documentation and integration examples.
-- Prepare stable Python and JavaScript package releases.
+### Python API
 
----
+```python
+from student_analyzer import analyze_student, analyze_class
 
-## Contributing
+individual = analyze_student(student_record)
+class_report = analyze_class(student_records)
+```
 
-Contributions, suggestions, bug reports, and feature requests are welcome.
+## TypeScript setup
 
-If you would like to contribute:
+Node.js 20+ is recommended. From the repository root:
 
-1. Fork the repository.
-2. Create a feature branch.
-3. Make your changes.
-4. Add or update tests.
-5. Submit a pull request with a clear explanation.
+```bash
+cd javascript
+npm install
+npm test
+npm run build
+```
 
-Please read CONTRIBUTING.md before submitting changes.
+### TypeScript API
 
----
+```ts
+import { analyzeStudent, analyzeClass } from "./src/index.js";
+
+const individual = analyzeStudent(studentRecord);
+const report = analyzeClass(studentRecords);
+```
+
+Both APIs accept an optional grading scale. A scale is an array of objects with `min`, `grade`, and `remark` properties. The highest matching minimum boundary is applied.
+
+## Cross-language validation
+
+The shared fixture file contains the input records and exact expected outputs. Python's pytest suite and TypeScript's Vitest suite both read that same file. This is the contract that keeps the two implementations aligned as features are added.
+
+GitHub Actions runs both test suites and the TypeScript build on pushes and pull requests.
+
+## What the class report includes
+
+- Overall class average (the mean of individual student averages).
+- Ranked students, sorted by average descending and then ID for deterministic ties.
+- Grade distribution.
+- Per-subject count, average, median, minimum, maximum, and population standard deviation.
+- Individual student reports embedded in the class report.
+
+A student who does not have a score for a particular subject is excluded from that subject's statistics; their missing score is never treated as zero.
+
+## Next: relational database layer
+
+The next stage will introduce a normalized PostgreSQL schema for students, departments, subjects, academic sessions, assessments, and scores. The database will store source records; Python and TypeScript will remain responsible for reusable calculations and presentation.
+
+## Project principles
+
+**Modularity:** calculations, analytics, visualization, CLI, and persistence have separate responsibilities.
+
+**Consistency:** Python and TypeScript use the same input contract and shared expected results.
+
+**Extensibility:** future dashboards, APIs, and database adapters can build on the engines without coupling the core calculations to a UI or database.
 
 ## License
 
-This project is distributed under the MIT License. See LICENSE for details.
-
----
-
-## Project Philosophy
-
-Student Performance Analyzer is built around three principles:
-
-**Modularity:** Every major part of the system should have a clear responsibility and be reusable.
-
-**Consistency:** The Python and TypeScript implementations should follow shared contracts and produce equivalent analytical results.
-
-**Extensibility:** The architecture should make it possible to introduce new analytical features, integrations, and interfaces without rebuilding the entire system.
-
----
-
-**Built to turn academic scores into meaningful data and reusable software.**
+MIT. See [LICENSE](LICENSE) when the license file is added.
